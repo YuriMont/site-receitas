@@ -7,7 +7,7 @@ import { useState } from "react";
 import defaultImage from "../assets/default.jpg";
 import { Preview } from "./Preview";
 
-export function NewRevenueForm() {
+export function NewRecipeForm() {
   const steps = ["Inicio", "Ingredientes", "Modo de preparo", "Preview"];
 
   const [stepForm1Data, setStepForm1Data] = useState({
