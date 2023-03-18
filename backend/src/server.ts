@@ -1,6 +1,5 @@
 import express from "express";
 import userRoutes from "./http/routes/UserRoutes";
-
 //Lembre-se de executar o prisma migrate
 
 const app = express();

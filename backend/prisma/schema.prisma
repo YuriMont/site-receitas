@@ -13,8 +13,19 @@ datasource db {
 model User{
   id String @id @default(uuid())
   name String
-  email String
+  email String @unique
   password String
+  forgot_password ForgotPassword?
 
   @@map("Users")
+}
+
+model ForgotPassword{
+  id Int @id @default(autoincrement())
+  userId String @unique
+  user User  @relation(fields: [userId], references: [id])
+  resetPasswordCode String
+  resetPasswordCodeExpires DateTime
+
+  @@map("ForgotPassword")
 }
