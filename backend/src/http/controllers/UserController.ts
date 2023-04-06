@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { string, z } from "zod";
+import { z } from "zod";
 import bcrypt from "bcrypt";
 import { prisma } from "../../lib/prisma";
 import * as dotenv from "dotenv";
@@ -54,7 +54,7 @@ export class UserController {
 
     const { email } = forgotPasswordBody.parse(req.body);
 
-    const userExits = await prisma.user.findFirst({
+    const userExits = await prisma.user.findUnique({
       where: {
         email,
       },
@@ -65,21 +65,31 @@ export class UserController {
     }
 
     let codigo = Math.floor(Math.random() * 9999) - 1000;
-    codigo < 1000 ? (codigo += 1000) : null;
+    if(codigo < 1000){
+      codigo+=1000;
+    }
 
     //criar forgot
-    await prisma.forgotPassword.update({
+    await prisma.user.update({
       where: {
-        userId: userExits.id,
+        id: userExits.id
       },
       data: {
-        resetPasswordCode: String(codigo),
-        resetPasswordCodeExpires: dayjs().add(15, "minutes").format(),
-      },
-    });
+        forgot_password: {
+          create: {
+            resetPasswordCode: String(codigo),
+            resetPasswordCodeExpires: dayjs().add(15, "minute").format(),
+          }
+        }        
+      }
+    })
 
-    const id_request =
-      await prisma.$queryRaw`SELECT F.id FROM ForgotPassword as F WHERE F.userId = ${userExits.id}`;
+    const forgot_request =
+      await prisma.forgotPassword.findUnique({
+        where: {
+          userId: userExits.id
+        }
+      });
 
     const transporter = nodemailer.createTransport({
       service: "outlook",
@@ -94,13 +104,13 @@ export class UserController {
         from: process.env.EMAIL,
         to: userExits.email,
         subject: "Código de verficação",
-        html: `<h4>Código para redefinir sua senha</h4>:<h1>${codigo}</h1>`,
+        html: `<h4>Código para redefinir sua senha:</h4><h1>${codigo}</h1>`,
       },
       (error) => {
         if (error) {
           return res.status(400).json({ error });
         }
-        return res.status(200).json({ id_request: id_request });
+        return res.status(200).json({id: forgot_request?.id});
       }
     );
   }
