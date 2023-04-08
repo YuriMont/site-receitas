@@ -44,7 +44,7 @@ export function Signup() {
       password: password,
       confirmation_password: confirmationPassword
     }).then((response) => {
-      navigate("/");
+      navigate("/sign");
     })
     .catch((error) => {
       toast.error(error.response.data.msg);
@@ -86,7 +86,7 @@ export function Signup() {
       <ToastContainer position="bottom-left" autoClose={2500}/>
       <div className="hidden relative w-full sm:flex flex-col sm:items-center items-baseline justify-between text-white gap-2 bg-pizza py-8 px-8">
         <Link
-          to="/"
+          to="/sign"
           className="w-full text-center text-8xl font-bold uppercase"
         >
           Logo

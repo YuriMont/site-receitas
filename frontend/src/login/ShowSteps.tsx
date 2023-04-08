@@ -166,7 +166,7 @@ export function ShowSteps({ step, setActiveStep }: ShowStepsProps) {
           confirmation_password,
         })
         .then(() => {
-          navigate("/");
+          navigate("/sign");
         })
         .catch((error) => {
           setError(error.response.data.msg);

@@ -4,8 +4,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
 
+  //w-full h-screen flex flex-col justify-center items-center
   return (
-    <div className="w-full h-screen flex justify-center items-center">
+    <div className="">
       <BrowserRouter>
         <Router />
       </BrowserRouter>
