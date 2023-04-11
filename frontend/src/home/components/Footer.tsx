@@ -6,8 +6,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-800 w-screen flex justify-around text-zinc-50 py-8 font-light">
-      <div className="flex flex-col text-lg">
+    <footer className="bg-zinc-900 w-screen flex gap-4 sm:flex-row flex-col sm:items-start items-center text-center justify-around text-zinc-50 py-8 font-light">
+      <div className="flex flex-col text-lg sm:text-left">
         <a href="#" className="text-6xl uppercase font-bold mb-2">
           LOGO
         </a>
@@ -26,13 +26,13 @@ export function Footer() {
       <div className="flex flex-col gap-2">
         <span className="text-xl font-semibold">Redes sociais</span>
         <span className="flex gap-2 items-center justify-center">
-          <a href="#" className="border border-white flex items-center justify-center p-2 bg-gray-700 hover:bg-gray-800 transition-colors rounded-full">
+          <a href="#" className="border border-white flex items-center justify-center p-2 hover:bg-zinc-800 transition-colors rounded-full">
             <img height={24} width={24} src={logo1} alt="" />
           </a>
-          <a href="#" className="border border-white flex items-center justify-center p-2 bg-gray-700 hover:bg-gray-800 transition-colors rounded-full">
+          <a href="#" className="border border-white flex items-center justify-center p-2 hover:bg-zinc-800 transition-colors rounded-full">
             <img height={24} width={24} src={logo2} alt="" />
           </a>
-          <a href="#" className="border border-white flex items-center justify-center p-2 bg-gray-700 hover:bg-gray-800 transition-colors rounded-full">
+          <a href="#" className="border border-white flex items-center justify-center p-2 hover:bg-zinc-800 transition-colors rounded-full">
             <img height={22} width={22} src={logo3} alt="" />
           </a>
         </span>
