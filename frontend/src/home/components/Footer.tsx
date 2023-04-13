@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="bg-zinc-900 w-screen flex gap-4 sm:flex-row flex-col sm:items-start items-center text-center justify-around text-zinc-50 py-8 font-light">
       <div className="flex flex-col text-lg sm:text-left">
         <a href="#" className="text-6xl uppercase font-bold mb-2">
-          LOGO
+          chef
         </a>
         <a href="https://personal-portfolio-yurimont.vercel.app/" className="">
           Yuri Monteiro {year}.

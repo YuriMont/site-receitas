@@ -7,12 +7,21 @@ body{
     @apply bg-zinc-100 overflow-x-hidden
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container{
     @apply sm:w-[850px] sm:h-[600px] sm:rounded-lg shadow-form;
  }
 
  .bg-banner-home{
     background-image: url("../assets/home-banner.jpg");
+    @apply bg-no-repeat bg-cover bg-left lg:bg-center;
+ }
+
+ .bg-banner-manha{
+    background-image: url("../assets//banner-comida.jpg");
     @apply bg-no-repeat bg-cover bg-left lg:bg-center;
  }
 

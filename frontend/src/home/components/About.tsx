@@ -2,11 +2,11 @@ import about from "../../assets/about.jpg";
 
 export function About() {
   return (
-    <section id="about" className="sm:px-16 px-8 py-12 text-zinc-900 sm:text-left text-center">
-      <div className="flex sm:flex-row flex-col gap-8">
+    <section id="about" className="sm:px-16 px-8 py-32 flex items-start bg-banner-manha font-light text-center">
+      {/* <div className="flex items-center lg:flex-row flex-col gap-8">
         <div className="flex-1">
           <img
-            className="lg:w-[640px] lg:h-[426px]  w-[320px] h-[213px] rounded-md shadow-form"
+            className="sm:w-[640px] sm:h-[426px]  w-[320px] h-[213px] rounded-md shadow-form"
             src={about}
             alt="cooking"
           />
@@ -29,6 +29,14 @@ export function About() {
             error molestias quod.
           </p>
         </div>
+      </div> */}
+      <div className="">
+        <h1 className="text-orange-500 font-bold text-6xl lg:w-[60%] mb-4">Pesquise suas receitas favoritas</h1>
+        <p className="text-white text-2xl lg:w-[60%]">
+          Navegue em nossas receitas com facilidade e experimente algo novo
+          hoje. Seja você um cozinheiro experiente ou um iniciante na cozinha,
+          nossas receitas são simples, claras e fáceis de seguir.
+        </p>
       </div>
     </section>
   );
