@@ -1,5 +1,5 @@
 import { HeartStraight } from "phosphor-react";
-import bolo from "../../assets/bolo.jpg";
+import bolo from "../../../assets/bolo.jpg";
 
 
 export function Recipes(){

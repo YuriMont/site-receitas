@@ -60,7 +60,7 @@ html {
 } 
 
 .MuiStepLabel-root circle, .MuiStepLabel-iconContainer path{
-    color: #7e22ce
+    @apply text-orange-500
 }
 
 .Mui-disabled circle{
@@ -73,8 +73,8 @@ html {
     height: 24px;
     border-radius: 50%;
     background: 
-      radial-gradient(farthest-side,#766DF4 94%,#0000) top/4px 4px no-repeat,
-      conic-gradient(#0000 30%,#766DF4);
+      radial-gradient(farthest-side, rgb(249 115 22 / var(--tw-text-opacity)) 94%,#0000) top/4px 4px no-repeat,
+      conic-gradient(#0000 30%, rgb(249 115 22 / var(--tw-text-opacity)));
     -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
     animation:s3 1s infinite linear;
   }

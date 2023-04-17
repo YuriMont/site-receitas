@@ -12,8 +12,6 @@ interface StepFormIngredientsProps {
 
 export function StepFormIngredients({
   setActiveStep,
-  activeStep,
-  steps,
   stepFormIngredientsData,
   setStepFormIngredientsData
 }: StepFormIngredientsProps) {
@@ -29,24 +27,29 @@ export function StepFormIngredients({
     setIngredients(ingredients.filter((item) => item !== ingredients[index]));
   }
 
+  function NextStep(){
+    setStepFormIngredientsData(ingredients);
+    setActiveStep(2);
+  }
+
 
 
   return (
     <>
-      <div className="w-[80%] flex flex-col items-center gap-3">
+      <div className="sm:w-[80%] w-full flex flex-col sm:items-center gap-3">
         <span className="w-full">
           <h1 className="text-base">Informe um ingrediente</h1>
-          <span className="w-full flex items-center justify-center gap-4">
+          <span className="w-full flex sm:flex-row flex-col items-center justify-center gap-4">
             <input
               value={ingredient}
               type="text"
-              className="font-light w-full px-4 py-2 bg-zinc-200 rounded-lg border border-zinc-400 text-zinc-900 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-600"
+              className="font-light w-full px-4 py-2 bg-zinc-200 rounded-lg border border-zinc-400 text-zinc-900 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
               placeholder="Exemplo: 200g de farinha de trigo"
               onChange={(e) => setIngredient(e.target.value)}
             />
             <button
               onClick={handleToggleAddIngredient}
-              className="uppercase text-base text-zinc-50 bg-purple-700 rounded-md px-4 py-2"
+              className="sm:w-auto w-full uppercase text-base text-zinc-50 bg-orange-600 rounded-md px-4 py-2"
             >
               adicionar
             </button>
@@ -78,9 +81,7 @@ export function StepFormIngredients({
           </ul>
         </div>
       </div>
-      <Button activeStep={activeStep} setActiveStep={setActiveStep} steps={steps} next={
-        () => setStepFormIngredientsData(ingredients)
-      }/>
+      <Button back={() => setActiveStep(0)} next={NextStep}/>
       
     </>
   );

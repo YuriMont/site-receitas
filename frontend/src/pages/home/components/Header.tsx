@@ -11,6 +11,7 @@ import {
   User,
 } from "phosphor-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -36,9 +37,9 @@ export function Header() {
           className="lg:hidden"
           onClick={() => setShowMenu(!showMenu)}
         />
-        <a href="#home" className="text-5xl font-bold text-orange-600">
+        <Link to="/" className="text-5xl font-bold text-orange-600">
           CHEF
-        </a>
+        </Link>
         <ul
           className={`flex lg:gap-8 lg:relative absolute lg:top-0 top-[8vh] w-screen left-0 lg:w-auto h-[92vh] lg:h-auto lg:bg-transparent bg-zinc-900 lg:text-gray-800 text-gray-100 flex-col lg:flex-row justify-around items-center ${
             showMenu ? "-translate-x-full" : "translate-x-0"
@@ -55,13 +56,13 @@ export function Header() {
             </button>
           </li>
           <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
-            <a href="#home">Inicio</a>
+            <Link to="/ooooooo" >Inicio</Link>
           </li>
           <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
             <a href="#category">Categorias</a>
           </li>
           <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
-            <a href="#">Escrever receita</a>
+            <Link to="new-recipe">Escrever receita</Link>
           </li>
         </ul>
         <ul className="flex gap-2">

@@ -1,14 +1,14 @@
-import { StepForm1 } from "./StepForm1";
-import { StepFormIngredients } from "./StepFormIngredients";
-import { StepFormPreparation } from "./StepFormPreparation";
+import { StepForm1 } from "./components/StepForm1";
+import { StepFormIngredients } from "./components/StepFormIngredients";
+import { StepFormPreparation } from "./components/StepFormPreparation";
 import { Stepper, Step, StepLabel, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 
-import defaultImage from "../assets/default.jpg";
-import { Preview } from "./Preview";
+import defaultImage from "../../assets/default.jpg";
+import { Preview } from "./components/Preview";
 
 export function NewRecipeForm() {
-  const steps = ["Inicio", "Ingredientes", "Modo de preparo", "Preview"];
+  const steps = ["Inicio", "Ingredientes", "Preparo", "Preview"];
 
   const [stepForm1Data, setStepForm1Data] = useState({
     image: defaultImage,
@@ -57,11 +57,12 @@ export function NewRecipeForm() {
       );
     }
 
-    return <Preview stepForm1Data={stepForm1Data} stepFormIngredientsData={stepFormIngredientsData} stepFormPreparationMode={stepFormPreparationModeData}/>
+    return <Preview setActiveStep={setActiveStep} stepForm1Data={stepForm1Data} stepFormIngredientsData={stepFormIngredientsData} stepFormPreparationMode={stepFormPreparationModeData}/>
   }
 
   return (
-    <div className="w-[70vw] h-[90vh] rounded-lg shadow-form bg-white flex flex-col justify-between py-8 px-16 overflow-y-auto">
+    <div className="w-screen h-screen flex items-center justify-center">
+      <div className="sm:w-[70vw] sm:h-[90vh] w-screen h-screen rounded-lg shadow-form bg-white flex flex-col justify-between py-8 sm:px-16 px-10 overflow-y-auto">
       <div className="w-full flex items-center justify-center flex-col gap-4">
         <div className="w-full">
           <Stepper activeStep={activeStep} alternativeLabel className="mt-4">
@@ -77,6 +78,7 @@ export function NewRecipeForm() {
 
         <Steps />
       </div>
+    </div>
     </div>
   );
 }

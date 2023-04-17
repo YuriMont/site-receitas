@@ -1,4 +1,4 @@
-import sorvete from "../../assets/icons-sorvete.png";
+import sorvete from "../../../assets/icons-sorvete.png";
 
 export function Category(){
     const category = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

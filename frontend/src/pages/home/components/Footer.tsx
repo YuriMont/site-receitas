@@ -1,6 +1,6 @@
-import logo1 from "../../assets/linkedin-logo.png";
-import logo2 from "../../assets/github-logo.png";
-import logo3 from "../../assets/telegram-logo.png";
+import logo1 from "../../../assets/linkedin-logo.png";
+import logo2 from "../../../assets/github-logo.png";
+import logo3 from "../../../assets/telegram-logo.png";
 
 export function Footer() {
   const year = new Date().getFullYear();

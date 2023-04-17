@@ -2,6 +2,7 @@ import { Button } from "./Button";
 import { Alarm, CookingPot, Handbag, Notepad } from "phosphor-react";
 
 import defaultImage from "../assets/default.jpg";
+import { useNavigate } from "react-router-dom";
 
 type step1Props = {
   image: string;
@@ -12,19 +13,28 @@ type step1Props = {
 };
 
 interface previewProps {
+  setActiveStep: any;
   stepForm1Data: step1Props;
   stepFormIngredientsData: String[];
   stepFormPreparationMode: String[];
 }
 
 export function Preview({
+  setActiveStep,
   stepForm1Data,
   stepFormIngredientsData,
   stepFormPreparationMode,
 }: previewProps) {
+
+  const navigate = useNavigate();
+
+  function NextStep(){
+    navigate("/");
+  }
+
   return (
     <>
-      <div className="flex flex-col justify-center items-center py-8 px-16 w-full bg-zinc-200 rounded-md gap-4">
+      <div className="flex flex-col justify-center items-center py-8 sm:px-16 px-4 bg-zinc-200 rounded-md gap-4">
         <div className="flex flex-col gap-3">
           <h1 className="font-normal text-lg w-full text-center">
             {stepForm1Data.revenueName}
@@ -32,19 +42,19 @@ export function Preview({
           <img
             src={stepForm1Data.image}
             alt="image"
-            className="shadow-form flex-1 w-96 h-64 border border-zinc-600 rounded-md"
+            className="shadow-form flex-1 sm:w-[540px] sm:h-[326px]  w-[320px] h-[213px] border border-zinc-600 rounded-md"
           />
-          <span className="flex w-full items-center justify-between">
+          <span className="flex px-4 py-2 items-center gap-4">
             <div className="font-light">
-              <h3 className="text-sm font-normal">Tempo de preparo</h3>
-              <span className="flex justify-center items-center w-full gap-2 lowercase">
+              <h3 className="text-sm font-normal">Preparo</h3>
+              <span className="flex items-center w-full gap-2 lowercase">
                 <Alarm size={28} weight="thin" />
                 {stepForm1Data.preparationTime}
               </span>
             </div>
             <div className="font-light ">
               <h3 className="text-sm font-normal">Rendimento</h3>
-              <span className="flex justify-center items-center w-full gap-2">
+              <span className="flex items-center w-full gap-2 lowercase">
                 <CookingPot size={28} weight="thin" />
                 {stepForm1Data.quantity}
               </span>
@@ -91,7 +101,7 @@ export function Preview({
         </div>
       </div>
 
-      <Button activeStep={3} steps={['']} setActiveStep={() => (console.log("teste"))} next={() => (console.log("teste"))}/>
+      <Button back={() => setActiveStep(2)} next={NextStep}/>
     </>
   );
 }

@@ -12,8 +12,6 @@ interface StepFormPreparationProps {
 
 export function StepFormPreparation({
   setActiveStep,
-  activeStep,
-  steps,
   stepFormPreparationModeData,
   setStepFormPreparationModeData
 }: StepFormPreparationProps) {
@@ -31,12 +29,17 @@ export function StepFormPreparation({
     );
   }
 
+  function NextStep(){
+    setStepFormPreparationModeData(preparationMode);
+    setActiveStep(3);
+  }
+
   return (
     <>
-      <div className="w-[80%] flex flex-col items-center gap-3">
+      <div className="sm:w-[80%] w-full flex flex-col items-center gap-3">
         <span className="w-full">
           <h1 className="text-base">Informe um ingrediente</h1>
-          <span className="w-full flex items-center justify-center gap-4">
+          <span className="w-full flex sm:flex-row flex-col items-start sm:items-center justify-center gap-4">
             <input
               value={prepare}
               type="text"
@@ -46,7 +49,7 @@ export function StepFormPreparation({
             />
             <button
               onClick={handleToggleAddPreparation}
-              className="uppercase text-base text-zinc-50 bg-purple-700 rounded-md px-4 py-2"
+              className="uppercase text-base text-zinc-50 bg-orange-600 rounded-md px-4 py-2"
             >
               adicionar
             </button>
@@ -78,7 +81,7 @@ export function StepFormPreparation({
           </ul>
         </div>
       </div>
-      <Button activeStep={activeStep} setActiveStep={setActiveStep} steps={steps} next={() => setStepFormPreparationModeData(preparationMode)}/>
+      <Button back={() => setActiveStep(1)} next={NextStep}/>
     </>
   );
 }
