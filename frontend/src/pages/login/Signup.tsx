@@ -1,10 +1,10 @@
 import GoogleLogin, { GoogleLoginResponse, GoogleLoginResponseOffline } from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
-import google from "../../../assets/google.png";
+import google from "../../assets/google.png";
 import { At, Eye, EyeSlash, Lock, User } from "phosphor-react";
 import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { api } from "../../../lib/axios";
+import { api } from "../../lib/axios";
 import { ToastContainer, toast } from "react-toastify";
 
 export function Signup() {

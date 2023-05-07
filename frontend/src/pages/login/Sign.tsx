@@ -1,14 +1,14 @@
 import { At, Eye, EyeSlash, Lock } from "phosphor-react";
 import { useEffect, useState } from "react";
 
-import google from "../../../assets/google.png";
+import google from "../../assets/google.png";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin, {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
 } from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
-import { api } from "../../../lib/axios";
+import { api } from "../../lib/axios";
 import { ToastContainer, toast } from "react-toastify";
 
 export function Sign() {

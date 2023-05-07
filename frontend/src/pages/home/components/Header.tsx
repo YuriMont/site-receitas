@@ -1,14 +1,11 @@
 import { Avatar, Popover } from "@mui/material";
 import {
-  BookmarkSimple,
   HeartStraight,
   List,
   MagnifyingGlass,
   Notepad,
-  Pencil,
   SignOut,
   Trash,
-  User,
 } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -55,13 +52,29 @@ export function Header() {
               <MagnifyingGlass size={24} />
             </button>
           </li>
-          <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
-            <Link to="/ooooooo" >Inicio</Link>
+          <li className="tracking-wide text-lg font-light hover:text-zinc-500 underline-offset-2 transition-all">
+            <Link
+              to="#home"
+              onClick={() => {
+                const section = document.querySelector("#home");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Inicio
+            </Link>
           </li>
-          <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
-            <a href="#category">Categorias</a>
+          <li className="tracking-wide text-lg font-light hover:text-zinc-500 underline-offset-2 transition-all">
+            <Link
+              to={"#category"}
+              onClick={() => {
+                const section = document.querySelector("#category");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Categorias
+            </Link>
           </li>
-          <li className="tracking-wide text-lg font-light hover:underline underline-offset-2 transition-all">
+          <li className="tracking-wide text-lg font-light hover:text-zinc-500 underline-offset-2 transition-all">
             <Link to="new-recipe">Escrever receita</Link>
           </li>
         </ul>
@@ -69,25 +82,41 @@ export function Header() {
           <li className="p-2 cursor-pointer hover:bg-gray-200 transition-colors rounded-full">
             <HeartStraight size={28} />
           </li>
-          <button className="cursor-pointer transition-colors rounded-full" onClick={handleClick}>
-            <Avatar><span className="bg-red-600 hover:bg-red-700 transition-colors h-full w-full rounded-full flex items-center justify-center">Y</span></Avatar>
+          <button
+            className="cursor-pointer transition-colors rounded-full"
+            onClick={handleClick}
+          >
+            <Avatar>
+              <span className="bg-red-600 hover:bg-red-700 transition-colors h-full w-full rounded-full flex items-center justify-center">
+                Y
+              </span>
+            </Avatar>
           </button>
           <Popover
-              id={id}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-            >
-              <div className="bg-zinc-100 flex flex-col gap-2 p-4 font-light">
-                <span className="flex items-center gap-2 cursor-pointer hover:text-gray-500 transition-colors"><Notepad size={32} weight="light"/>Minhas receitas</span>
-                <span className="flex items-center gap-2 cursor-pointer hover:text-gray-500 transition-colors"><SignOut size={32} weight="light"/>Sair</span>
-                <span className="text-red-600 flex items-center gap-2 cursor-pointer hover:text-red-700 transition-colors"><Trash size={32} weight="light"/>Excluir conta</span>
-              </div>
-            </Popover>
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+          >
+            <div className="bg-zinc-100 flex flex-col gap-2 p-4 font-light">
+              <span className="flex items-center gap-2 cursor-pointer hover:text-gray-500 transition-colors">
+                <Notepad size={32} weight="light" />
+                Minhas receitas
+              </span>
+              <span className="flex items-center gap-2 cursor-pointer hover:text-gray-500 transition-colors">
+                <SignOut size={32} weight="light" />
+                Sair
+              </span>
+              <span className="text-red-600 flex items-center gap-2 cursor-pointer hover:text-red-700 transition-colors">
+                <Trash size={32} weight="light" />
+                Excluir conta
+              </span>
+            </div>
+          </Popover>
         </ul>
       </nav>
     </header>

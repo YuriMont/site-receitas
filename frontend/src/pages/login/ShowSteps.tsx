@@ -1,6 +1,6 @@
 import { At, ArrowRight, Eye, EyeSlash, Lock } from "phosphor-react";
 import { useState } from "react";
-import { api } from "../../../lib/axios";
+import { api } from "../../lib/axios";
 import { useNavigate } from "react-router-dom";
 
 interface ShowStepsProps {

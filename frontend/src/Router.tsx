@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Forgot } from "./pages/recipe/login/Forgot";
-import { Sign } from "./pages/recipe/login/Sign";
-import { Signup } from "./pages/recipe/login/Signup";
+import { Forgot } from "./pages/login/Forgot";
+import { Sign } from "./pages/login/Sign";
+import { Signup } from "./pages/login/Signup";
 import { HomePage } from "./pages/home/HomePage";
 import { NewRecipeForm } from "./pages/recipe/NewRecipeForm";
 
