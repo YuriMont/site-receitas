@@ -7,12 +7,34 @@ body{
     @apply bg-zinc-100 overflow-x-hidden
 }
 
+.modal{
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
+
 html {
     scroll-behavior: smooth;
 }
 
 .container{
     @apply sm:w-[850px] sm:h-[600px] sm:rounded-lg shadow-form;
+ }
+
+ .vidro{
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-tap-highlight-color: transparent;
+    z-index: -1;
  }
 
  .bg-banner-home{

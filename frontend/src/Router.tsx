@@ -4,6 +4,8 @@ import { Sign } from "./pages/login/Sign";
 import { Signup } from "./pages/login/Signup";
 import { HomePage } from "./pages/home/HomePage";
 import { NewRecipeForm } from "./pages/recipe/NewRecipeForm";
+import { Recipe } from "./pages/recipe/Recipe";
+import { AllPage } from "./pages/recipe/components/AllPage";
 
 export function Router(){
     return (
@@ -13,6 +15,7 @@ export function Router(){
             <Route path="/sign" element={<Sign/>}/>
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot" element={<Forgot />} />
+            <Route path="/all" element={< AllPage/>} />
         </Routes>
     );
 }

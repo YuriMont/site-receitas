@@ -42,19 +42,9 @@ export function Header() {
             showMenu ? "-translate-x-full" : "translate-x-0"
           } transition-transform`}
         >
-          <li className="tracking-wide flex items-center gap-2">
-            <input
-              type="text"
-              className="px-4 py-2 bg-zinc-200 text-gray-600 font-thin rounded-md border"
-              placeholder="Ex: bolo de chocolate"
-            />
-            <button className="p-2 lg:bg-zinc-200 bg-zinc-600 cursor-pointer border hover:bg-zinc-700 lg:hover:bg-zinc-300 transition-colors rounded-md">
-              <MagnifyingGlass size={24} />
-            </button>
-          </li>
           <li className="tracking-wide text-lg font-light hover:text-zinc-500 underline-offset-2 transition-all">
             <Link
-              to="#home"
+              to="/#home"
               onClick={() => {
                 const section = document.querySelector("#home");
                 section?.scrollIntoView({ behavior: "smooth" });
@@ -65,7 +55,7 @@ export function Header() {
           </li>
           <li className="tracking-wide text-lg font-light hover:text-zinc-500 underline-offset-2 transition-all">
             <Link
-              to={"#category"}
+              to={"/#category"}
               onClick={() => {
                 const section = document.querySelector("#category");
                 section?.scrollIntoView({ behavior: "smooth" });

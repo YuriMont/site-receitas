@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Home() {
   return (
     <section
@@ -17,12 +19,12 @@ export function Home() {
           receitas, aqui você terá uma fonte de inspiração para novos pratos e
           ideias para variar o cardápio.
         </p>
-        <a
-          href="#recipes"
+        <Link
+          to="all"
           className="bg-orange-500 hover:bg-orange-600 transition-colors font-normal inline-block mt-4 rounded-md text-white px-4 py-2 cursor-pointer text-xl"
         >
           Ver receitas
-        </a>
+        </Link>
       </div>
     </section>
   );
